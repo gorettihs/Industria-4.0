@@ -13,6 +13,9 @@ with open('style.css') as f:
 # Data
 seattle_weather = pd.read_csv('https://raw.githubusercontent.com/tvst/plost/master/data/seattle-weather.csv', parse_dates=['date'])
 stocks = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/stocks_toy.csv')
+from google.colab import drive
+drive.mount('/content/drive')
+df=pd.read_excel('/content/drive/Shareddrives/M3001C Sistemas y Tecnologías 4.0 (Industria 4.0)/OEE Bonafont/Registro_Excel.xlsx')
 
 # Row A
 a1, a2, a3 = st.columns(3)
@@ -21,6 +24,20 @@ a2.metric("Wind", "9 mph", "-8%")
 a3.metric("Humidity", "86%", "4%")
 
 # Row B
+b1, b2 = st.columns((7,3))
+with b1:
+    st.markdown('### OEE con el tiempo')
+    plost.line_chart(
+    data=df,
+    x='Fecha',
+    y=('Disponibilidad', 'Rendimiento', 'Calidad', 'OEE'))
+with b2:
+    st.markdown('### Bar chart')
+    plost.donut_chart(
+        data=stocks,
+        theta='q2',
+        color='company')
+'''
 b1, b2, b3, b4 = st.columns(4)
 b1.metric("Temperature", "70 °F", "1.2 °F")
 b2.metric("Wind", "9 mph", "-8%")
@@ -45,3 +62,4 @@ with c2:
         data=stocks,
         theta='q2',
         color='company')
+'''
