@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import plost
 from PIL import Image
+from google.colab import drive
 
 # Page setting
 st.set_page_config(layout="wide")
@@ -13,7 +14,7 @@ with open('style.css') as f:
 # Data
 seattle_weather = pd.read_csv('https://raw.githubusercontent.com/tvst/plost/master/data/seattle-weather.csv', parse_dates=['date'])
 stocks = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/stocks_toy.csv')
-from google.colab import drive
+
 drive.mount('/content/drive')
 df=pd.read_excel('/content/drive/Shareddrives/M3001C Sistemas y Tecnologías 4.0 (Industria 4.0)/OEE Bonafont/Registro_Excel.xlsx')
 
