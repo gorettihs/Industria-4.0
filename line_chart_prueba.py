@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import plost
 from PIL import Image
-from google-colab import drive
+from google.colab import drive
 
 # Page setting
 st.set_page_config(layout="wide")
